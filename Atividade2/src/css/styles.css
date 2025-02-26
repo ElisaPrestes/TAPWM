@@ -1,0 +1,234 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap");
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  box-sizing: border-box;
+  font-family: IBM Plex Mono, Arial;
+}
+
+body {
+  background-image: url(../Imagens/DarkWave.jpg);
+  font-family: IBM Plex Mono, Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #22262b;
+  color: #eee;
+  padding-top: 70px; /* Adjust this value based on the height of your header */
+}
+
+#TitleIntroducao {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #947fb1;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: #2b2c2e;
+}
+
+header h1 {
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #8a71af; /* Cor ao passar o mouse */
+}
+
+/* Sections */
+.topic {
+  padding: 60px 0; /* Aumenta o padding */
+  margin-bottom: 30px; /* Aumenta a margem */
+  background: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
+  backdrop-filter: blur(10px); /* Efeito de desfoque */
+  border-radius: 15px; /* Bordas arredondadas */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Borda sutil */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+
+
+.topic h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #d8d8d8;
+}
+
+.topic p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.topic ul {
+  margin-left: 20px;
+}
+
+.topic ul li {
+  margin-bottom: 10px;
+}
+
+#introducao {
+  margin-top: 5%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 60px 0;
+  width: 50%;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+
+  position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 80%; /* Largura da seção */
+    margin: 80px auto; /* Centraliza a seção */
+    text-align: center; /* Centraliza o texto */
+}
+
+/* Container dos cards */
+.card-container {
+  margin-top: 3%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px; /* Espaçamento entre os cards */
+}
+
+/* Estilo do card */
+.card {
+  border-width: 4px;
+  border-color: #986bd3;
+  background-color: #d6d6d6;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px); /* Movimenta o card para cima */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Aumenta a sombra */
+  border-width: 4px;
+  border-color: #986bd3;
+}
+
+/* Imagem do card */
+.card-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* Garante que a imagem cubra o espaço */
+}
+
+.card-image img {
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-image img {
+  transform: scale(1.1); /* Aumenta a imagem em 10% */
+}
+
+/* Conteúdo do card */
+.card-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.card-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.card-content p {
+  font-size: 1rem;
+  color: #666;
+}
+
+
+
+.footer-dark {
+  background-color: #111;
+  color: #aaa;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.footer-dark h4 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.footer-dark p {
+  font-size: 14px;
+  color: #bbb;
+}
+
+.footer-dark .social-icons {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.footer-dark .social-icons li {
+  display: inline-block;
+}
+
+.footer-dark .social-icons a {
+  color: #aaa;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.footer-dark .social-icons a:hover {
+  color: #fff;
+}
+
+.footer-dark hr {
+  border-color: #444;
+  margin: 20px 0;
+}
+
+.footer-dark p {
+  margin-top: 10px;
+  font-size: 14px;
+}
