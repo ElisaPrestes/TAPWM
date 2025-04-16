@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedra, Papel e Tesoura</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div></div>
+    <div class="container">
+        <h1>Pedra, Papel e Tesoura</h1>
+
+        <div class="buttons">
+            <button onclick="jogar('pedra')"><i class="fa-solid fa-hand-rock"></i></button>
+            <button onclick="jogar('papel')"><i class="fa-solid fa-hand-paper"></i></button>
+            <button onclick="jogar('tesoura')"><i class="fa-solid fa-hand-scissors"></i></button>
+        </div>
+
+        <div id="resultado"></div>
+        <div id="placar">Vitórias: 0 | Empates: 0 | Derrotas: 0</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
