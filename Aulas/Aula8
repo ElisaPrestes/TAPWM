@@ -1,0 +1,24 @@
+Try catch -> tratamento de exceção
+Função declarada
+Arrow function é mais enxuta
+Expressão de função tem função anônima
+
+Criando a função declarada, é possível usufruir da orientação a objetos, diferente da expressão de função.
+Elevação: se for uma função declarada, e eu chamo antes de declarar a função, ele encontra e chama. Mas com espressões de função não funciona
+Declarar função com os parâmetros apenas na execução. Via arguments (array)
+
+recursividade -> uma coisa que chama a si mesma
+
+Função aninhada -> função que chama outra função
+
+
+Funções do póprio js: parseInt, number
+função declarada
+Expressão de função: (variável primeiro, anônima, chama nos arguments)
+Arrow function está mais popular. Usada por ser mais enxuta. Usada em callback.
+Callback: uma função que contém outra dentro. Primeiro executa-se a interna e depois a que a abriga.
+
+(for i=100, i>0, i-=5)
+
+while(nao executa a primeira vez se a execução for falsa)
+do while(entra a primeira vez)
