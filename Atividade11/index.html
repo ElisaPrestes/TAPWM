@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Área de Retângulo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+
+        <h1>Calculadora de Área de Retângulo</h1>
+        <label for="base">Base:</label>
+        <input type="number" id="base" placeholder="Digite a base">
+        <br><br>
+        <label for="altura">Altura:</label>
+        <input type="number" id="altura" placeholder="Digite a altura">
+        <br><br>
+        <button onclick="executarCalculo()">Calcular Área</button>
+        <p id="resultado"></p>
+    </div>
+
+    <div class="container">
+        <h1>Sistemazinho Bancário</h1>
+        
+        <div class="form-section">
+          <h2>Criar Conta</h2>
+          <div class="input-group">
+            <label for="tipoConta">Tipo de Conta:</label>
+            <select id="tipoConta" class="form-input">
+              <option value="corrente">Conta Corrente</option>
+              <option value="poupanca">Conta Poupança</option>
+            </select>
+          </div>
+      
+          <div class="input-group">
+            <label for="nome">Nome do Correntista:</label>
+            <input type="text" id="nome" class="form-input" placeholder="Digite seu nome">
+          </div>
+      
+          <div class="input-group">
+            <label for="banco">Banco:</label>
+            <input type="text" id="banco" class="form-input" placeholder="Nome do banco">
+          </div>
+      
+          <div class="input-group">
+            <label for="numeroConta">Número da Conta:</label>
+            <input type="text" id="numeroConta" class="form-input" placeholder="Número da conta">
+          </div>
+      
+          <div class="input-group">
+            <label for="saldo">Saldo Inicial:</label>
+            <input type="number" id="saldo" class="form-input" placeholder="Saldo inicial">
+          </div>
+      
+          <div id="extraFields"></div>
+      
+          <button onclick="criarConta()">Criar Conta</button>
+        </div>
+      
+        <div id="resultadoContas" class="results-container"></div>
+      </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Classe base Conta
+        class Conta {
+          constructor(nomeCorrentista, banco, numeroConta, saldo) {
+            this._nomeCorrentista = nomeCorrentista;
+            this._banco = banco;
+            this._numeroConta = numeroConta;
+            this._saldo = saldo;
+          }
+      
+          // Getters e Setters
+          get nomeCorrentista() {
+            return this._nomeCorrentista;
+          }
+      
+          set nomeCorrentista(novoNome) {
+            this._nomeCorrentista = novoNome;
+          }
+      
+          get banco() {
+            return this._banco;
+          }
+      
+          set banco(novoBanco) {
+            this._banco = novoBanco;
+          }
+      
+          get numeroConta() {
+            return this._numeroConta;
+          }
+      
+          set numeroConta(novoNumero) {
+            this._numeroConta = novoNumero;
+          }
+      
+          get saldo() {
+            return this._saldo;
+          }
+      
+          set saldo(novoSaldo) {
+            this._saldo = novoSaldo;
+          }
+      
+          mostrarDados() {
+            return `
+              <h3>Conta Bancária</h3>
+              <div class="account-info">
+                <p><strong>Correntista:</strong> ${this._nomeCorrentista}</p>
+                <p><strong>Banco:</strong> ${this._banco}</p>
+                <p><strong>Número:</strong> ${this._numeroConta}</p>
+                <p><strong>Saldo:</strong> R$ ${this._saldo.toFixed(2)}</p>
+              </div>
+            `;
+          }
+        }
+      
+        // Classe ContaCorrente com saldo especial
+        class ContaCorrente extends Conta {
+          constructor(nomeCorrentista, banco, numeroConta, saldo, saldoEspecial) {
+            super(nomeCorrentista, banco, numeroConta, saldo);
+            this._saldoEspecial = saldoEspecial;
+          }
+      
+          get saldoEspecial() {
+            return this._saldoEspecial;
+          }
+      
+          set saldoEspecial(novoSaldoEspecial) {
+            this._saldoEspecial = novoSaldoEspecial;
+          }
+      
+          mostrarDados() {
+            return `
+              <div class="account-card corrente">
+                <h3>Conta Corrente</h3>
+                <div class="account-info">
+                  <p><strong>Correntista:</strong> ${this._nomeCorrentista}</p>
+                  <p><strong>Banco:</strong> ${this._banco}</p>
+                  <p><strong>Número:</strong> ${this._numeroConta}</p>
+                  <p><strong>Saldo:</strong> R$ ${this._saldo.toFixed(2)}</p>
+                  <p><strong>Saldo Especial:</strong> R$ ${this._saldoEspecial.toFixed(2)}</p>
+                  <p><strong>Saldo Total:</strong> R$ ${(this._saldo + this._saldoEspecial).toFixed(2)}</p>
+                </div>
+              </div>
+            `;
+          }
+        }
+      
+        // Classe ContaPoupanca com juros e vencimento
+        class ContaPoupanca extends Conta {
+          constructor(nomeCorrentista, banco, numeroConta, saldo, juros, dataVencimento) {
+            super(nomeCorrentista, banco, numeroConta, saldo);
+            this._juros = juros;
+            this._dataVencimento = dataVencimento;
+          }
+      
+          get juros() {
+            return this._juros;
+          }
+      
+          set juros(novosJuros) {
+            this._juros = novosJuros;
+          }
+      
+          get dataVencimento() {
+            return this._dataVencimento;
+          }
+      
+          set dataVencimento(novaData) {
+            this._dataVencimento = novaData;
+          }
+      
+          mostrarDados() {
+            return `
+              <div class="account-card poupanca">
+                <h3>Conta Poupança</h3>
+                <div class="account-info">
+                  <p><strong>Correntista:</strong> ${this._nomeCorrentista}</p>
+                  <p><strong>Banco:</strong> ${this._banco}</p>
+                  <p><strong>Número:</strong> ${this._numeroConta}</p>
+                  <p><strong>Saldo:</strong> R$ ${this._saldo.toFixed(2)}</p>
+                  <p><strong>Juros:</strong> ${this._juros}%</p>
+                  <p><strong>Vencimento:</strong> ${this._dataVencimento}</p>
+                </div>
+              </div>
+            `;
+          }
+        }
+      
+        // Variáveis globais para armazenar as contas
+        let contaCorrenteExemplo = null;
+        let contaPoupancaExemplo = null;
+      
+        // Função para criar contas
+        function criarConta() {
+          const tipoConta = document.getElementById('tipoConta').value;
+          const nome = document.getElementById('nome').value;
+          const banco = document.getElementById('banco').value;
+          const numeroConta = document.getElementById('numeroConta').value;
+          const saldo = parseFloat(document.getElementById('saldo').value);
+      
+          if (tipoConta === 'corrente') {
+            const saldoEspecial = parseFloat(prompt('Digite o saldo especial:'));
+            contaCorrenteExemplo = new ContaCorrente(nome, banco, numeroConta, saldo, saldoEspecial);
+            mostrarContas();
+          } else {
+            const juros = parseFloat(prompt('Digite o percentual de juros:'));
+            const dataVencimento = prompt('Digite a data de vencimento (DD/MM/AAAA):');
+            contaPoupancaExemplo = new ContaPoupanca(nome, banco, numeroConta, saldo, juros, dataVencimento);
+            mostrarContas();
+          }
+        }
+      
+        // Função para mostrar todas as contas
+        function mostrarContas() {
+          const resultadoDiv = document.getElementById('resultadoContas');
+          resultadoDiv.innerHTML = '';
+      
+          if (contaCorrenteExemplo) {
+            resultadoDiv.innerHTML += contaCorrenteExemplo.mostrarDados();
+          }
+      
+          if (contaPoupancaExemplo) {
+            resultadoDiv.innerHTML += contaPoupancaExemplo.mostrarDados();
+          }
+        }
+      
+        // Exemplo de uso automático (pode remover)
+        document.addEventListener('DOMContentLoaded', function() {
+          // Cria uma conta corrente e uma poupança de exemplo
+          contaCorrenteExemplo = new ContaCorrente(
+            "João Silva",
+            "Banco Digital",
+            "12345-6",
+            1500.00,
+            1000.00
+          );
+      
+          contaPoupancaExemplo = new ContaPoupanca(
+            "Maria Oliveira",
+            "Banco Digital",
+            "65432-1",
+            5000.00,
+            0.5,
+            "15/10/2025"
+          );
+      
+          mostrarContas();
+        });
+      </script>
+</body>
+</html>
