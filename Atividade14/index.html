@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATV 14 - Formulário Principal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <form name="formPrincipal" onsubmit="return validarFormulario()">
+            <fieldset>
+                <legend>Formulário Principal</legend>
+
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome">
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email">
+
+                <label for="comentario">Comentário:</label>
+                <textarea id="comentario" name="comentario" rows="5"></textarea>
+
+                <div class="pesquisa-group">
+                    <p>Pesquisa:</p>
+                    <p class="pergunta">Primeira vez nesta página?</p>
+                    <label>
+                        <input type="radio" name="visita" value="sim"> Sim
+                    </label>
+                    <label>
+                        <input type="radio" name="visita" value="nao"> Não
+                    </label>
+                </div>
+
+                <div class="botoes">
+                    <input type="submit" value="Enviar">
+                    <input type="reset" value="Limpar">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
